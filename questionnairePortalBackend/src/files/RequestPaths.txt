@@ -1,0 +1,133 @@
+
+    Create jwt token by username and password;
+        post = http://localhost:8080/login
+
+         Örnek girdi:
+
+
+        Örnek çıktı:
+        eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZXJ2ZSIsImV4cCI6MTY4NTQ0OTMyNywiaWF0IjoxNjgyODU3MzI3fQ.nyOlLyxDmpojchH-9kpKssaMBZ2fI_hqQ0RnRWPgoZg
+
+    Get User Info By UserName And UserPassword;
+        get = http://localhost:8080/UsersController/getUserInfoByUserNameAndUserPassword?userName=merve&password=12345
+
+        Örnek çıktı:
+        {
+            "success": true,
+            "message": "Kullanıcı bilgisi döndürüldü!",
+            "data": {
+                "id": 1,
+                "userName": "merve",
+                "userPassword": "12345"
+            }
+        }
+
+    Get User Info By UserPassword;
+        get = http://localhost:8080/UsersController/getUserByPassword?password=12345
+
+        Örnek çıktı:
+        {
+            "success": true,
+            "message": "Password ile kullanıcı bilgisi döndürüldü!",
+            "data": {
+                "id": 1,
+                "userName": "merve",
+                "userPassword": "12345"
+            }
+        }
+
+    Token control request;
+        get = http://localhost:8080/UsersController/tokenControl
+
+        Örnek çıktı:
+        true
+
+    Get User Info By UserPassword;
+        get = http://localhost:8080/questionnairesController/getQuestionnaireByTitle?title=newaaa
+
+        Örnek çıktı:
+        {
+            "success": true,
+            "message": "Başlık ile anket bulundu.",
+            "data": {
+                "id": 19,
+                "title": "newaaa",
+                "questions": [
+                    {
+                        "id": 1,
+                        "question_text": "dsads",
+                        "options": [
+                            "dsdad",
+                            "sasas"
+                        ]
+                    }
+                ]
+            }
+        }
+
+    Get titles of questionnaires;
+        get : http://localhost:8080/questionnairesController/getAllTitlesOfQuestionnaires
+
+        Örnek çıktı:
+        [
+            "newaaa",
+            "anket2"
+        ]
+
+    Save user answer by username, optionText and questionId;
+        post : http://localhost:8080/questionnaireAnswersController/saveAnswers?username=merve&questionId=7&answer=cevap2
+
+        Örnek çıktı:
+        Questionnaire saved successfully
+
+    Get OptionId By option text and question id;
+        get : http://localhost:8080/optionsController/getOptionIdByOptionTextAndQuestionId?option=eşek&questionId=10
+
+        Örnek çıktı:
+        {
+            "success": true,
+            "message": "Returned optionId by optionText and questionId.",
+            "data": 19
+        }
+
+    Get questionnaireAnswers By option id to get option count;
+        get : http://localhost:8080/questionnaireAnswersController/getOptionsCount?optionId=25
+
+        Örnek çıktı:
+        {
+            "success": true,
+            "message": "Returned questionnaireAnswers by optionId.",
+            "data": [
+                {
+                    "id": 21,
+                    "userId": 1,
+                    "optionId": 25
+                },
+                {
+                    "id": 25,
+                    "userId": 2,
+                    "optionId": 25
+                }
+            ]
+        }
+
+    Get option count By question id and option text;
+        get : http://localhost:8080/optionsController/getOptionCountByOptionTextAndQuestionId?option=kaplumbağa&questionId=12
+
+        Örnek çıktı:
+        2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
